@@ -4,10 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Additional dependencies
 
-  * [date-input-polyfil](https://www.npmjs.com/package/date-input-polyfill)
+  * [angular2-material-datepicker ](https://www.npmjs.com/package/angular2-material-datepicker)
    
-  Just include this simple script and IE, Firefox, and OS X Safari will support <input type="date">, without any dependencies, not even jQuery!
-  Support dynamically created inputs, so can be used in single page applications.
+  A minimalist datepicker library for Angular 2
   * [angular-in-memory-web-api](https://github.com/angular/in-memory-web-api.git)
   
   An in-memory web api for Angular demos and tests. It intercepts Angular Http requests that would otherwise go to the remote server via the Angular XHRBackend service
