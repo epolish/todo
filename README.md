@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
+[See Demo](https://epolish.github.io/help)
+
 ## Additional dependencies
 
   * [angular2-material-datepicker ](https://www.npmjs.com/package/angular2-material-datepicker)
