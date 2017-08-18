@@ -1,0 +1,88 @@
+@import "~variables.scss";
+
+i.fa {
+    font-size: 17px;
+    margin-right: 5px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+li {
+    &.list-group-item:not(.active):not(.add-task) {
+        &.dnd-sortable-drag {
+          background: $mainGreyColor;
+          & ~ li {
+            background: white;
+          }
+        }
+        &:hover {
+            background: $mainGreyColor;
+            div.controls {
+                visibility: visible;
+            }
+        }
+        i.fa:hover {
+            color: $mainBlueColor;
+        }
+        div {
+            float: left;
+            &.controls {
+                visibility: hidden;
+            }
+            &.pull-right div {
+                margin-left: 15px;
+            }
+            &.task-title {
+                max-width: 55%;
+                outline: none;
+                cursor: text;
+            }
+        }
+    }
+    &.add-task {
+        div.form-group {
+            float: left;
+            min-width: 80%;
+        }
+    }
+    &.active {
+        p.lead {
+            margin: 0;
+        }
+        i.fa:hover {
+            color: $iconHoverColor;
+        }
+    }
+    &:last-child {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+}
+div {
+    &.checkbox {
+        float: left;
+        margin-top: 0;
+    }
+}
+@media (min-width: $screenSmMax) {
+    li.list-group-item:not(.active):not(.add-task) div.task-title {
+        max-width: 55%;
+    }
+}
+@media (min-width: $screenXsMax) and (max-width: $screenSmMax) {
+    li.list-group-item:not(.active):not(.add-task) div.task-title {
+        max-width: 44%;
+    }
+}
+@media (max-width: $screenXsMax) {
+    li {
+        &.list-group-item:not(.active):not(.add-task) div.task-title {
+            max-width: 90%;
+            margin-bottom: 15px;
+
+        }
+        &.add-task div.form-group {
+            width: 100%;
+        }
+    }
+}
