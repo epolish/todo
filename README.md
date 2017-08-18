@@ -6,10 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
   * [angular2-material-datepicker ](https://www.npmjs.com/package/angular2-material-datepicker)
    
-  A minimalist datepicker library for Angular 2
+  A minimalist datepicker library for Angular 2.
   * [angular-in-memory-web-api](https://github.com/angular/in-memory-web-api.git)
   
-  An in-memory web api for Angular demos and tests. It intercepts Angular Http requests that would otherwise go to the remote server via the Angular XHRBackend service
+  An in-memory web api for Angular demos and tests. It intercepts Angular Http requests that would otherwise go to the remote server via the Angular XHRBackend service.
   * [ng2-slim-loading-bar](https://www.npmjs.com/package/ng2-slim-loading-bar)
   
   Angular2 component shows slim loading bar at the top of the page of your application.
