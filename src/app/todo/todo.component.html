@@ -1,15 +1,22 @@
 <nav class="navbar-fixed-top">
-  <ng2-slim-loading-bar [color]="'royalblue'" [height]="'2px'"></ng2-slim-loading-bar>
+  <ng2-slim-loading-bar
+    [color]="'royalblue'"
+    [height]="'2px'"
+  ></ng2-slim-loading-bar>
 </nav>
 <div class="container">
   <div class="row todo-list">
     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
-      <ng-template #projectContainer></ng-template> 
+      <ng-template
+        #projectContainer
+      ></ng-template> 
     </div>
   </div>
   <div class="row footer">
     <div class="col-sm-4 col-sm-offset-4 col-xs-12">
-      <div class="btn btn-primary btn-lg btn-block" (click)="addProject()">
+      <div class="btn btn-primary btn-lg btn-block"
+        (click)="addProject()"
+      >
         <div class="pull-right">
           <i class="fa fa-plus"></i>
         </div>

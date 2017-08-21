@@ -1,5 +1,4 @@
-import { AppSettings } from './app-settings';
-import { Project } from './project'
+import { AppSettings, Project } from '../';
 
 describe('Project', () => {
   let project;

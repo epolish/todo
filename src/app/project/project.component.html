@@ -1,4 +1,5 @@
-<ul class="list-group" *ngIf="show"
+<ul class="list-group"
+  *ngIf="show"
   #zone
   @flyInOut
   dnd-sortable-container
@@ -7,25 +8,33 @@
 >
   <li class="list-group-item active">
     <div class="pull-right">
-      <i class="fa fa-pencil" (click)="focusProjectName()"></i>
-      <i class="fa fa-close" (click)="deleteProject()"></i>
+      <i class="fa fa-pencil"
+        (click)="focusElement(focusableProject)"
+      ></i>
+      <i class="fa fa-close"
+        (click)="deleteProject()"
+      ></i>
     </div>
-    <p class="lead"
-      contenteditable="true"
+    <p class="lead" contenteditable="true"
+      #focusableProject
       [textContent]="project.name"
-      [focus]="focusTriggeringEventEmitter"
-      (focusout)="completeProjectEditing($event.target.textContent)"
+      (blur)="completeProjectEditing($event.target.textContent)"
     ></p>
   </li>
   <li class="list-group-item clearfix add-task">
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Start typing here to create a task..." #taskName
+      <input type="text" class="form-control" placeholder="Start typing here to create a task..."
+        #taskName
         (keyup.enter)="createTask(taskName.value); taskName.value=''"
       >
     </div>
-    <div class="btn btn-primary pull-right" (click)="createTask(taskName.value); taskName.value=''">Add Task</div>
+    <div class="btn btn-primary pull-right"
+      (click)="createTask(taskName.value);
+      taskName.value=''"
+    >Add Task</div>
   </li>
-  <li class="list-group-item clearfix" *ngFor="let task of project.tasks; let i = index"
+  <li class="list-group-item clearfix"
+    *ngFor="let task of project.tasks; let i = index"
     @flyInOut
     dnd-sortable [sortableIndex]="i"
     [dragData]="task"
@@ -33,21 +42,38 @@
   >
     <div class="checkbox">
       <label>
-        <input type="checkbox" [(ngModel)]="task.status" (ngModelChange)="updateTask(task)">
+        <input type="checkbox"
+          [(ngModel)]="task.status"
+          (ngModelChange)="updateTask(task)"
+        >
       </label>
     </div>
-    <div class="task-title" contenteditable="true" #focusable
+    <div class="task-title"
+      contenteditable="true"
+      #focusableTask
       [textContent]="task.name"
-      (focusout)="updateTaskName(task, $event.target.textContent)"
+      (blur)="updateTaskName(task, $event.target.textContent)"
     ></div>
     <div class="pull-right">
       <div class="pull-right" class="input-group date">
-        <material-datepicker [(date)]="task.expires" (dateChange)="updateTask(task)"></material-datepicker>
+        <material-datepicker
+          [(date)]="task.expires"
+          (dateChange)="updateTask(task)"
+        ></material-datepicker>
       </div>
-      <div class="controls" (mousedown)="disabled=true" (mouseup)="disabled=false">
-        <i class="fa fa-retweet" dnd-sortable-handle></i>
-        <i class="fa fa-pencil" (click)="focusTaskName(focusable)"></i>
-        <i class="fa fa-close" (click)="deleteTask(task)"></i>
+      <div class="controls"
+        (mousedown)="disabled=true"
+        (mouseup)="disabled=false"
+      >
+        <i class="fa fa-retweet"
+          dnd-sortable-handle
+        ></i>
+        <i class="fa fa-pencil"
+          (click)="focusElement(focusableTask)"
+        ></i>
+        <i class="fa fa-close"
+          (click)="deleteTask(task)"
+        ></i>
       </div>
     </div>
   </li>

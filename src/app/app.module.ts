@@ -1,28 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule }    from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { DndModule } from 'ng2-dnd';
 import { AppComponent } from './app/app.component';
 import { HelpComponent } from './help/help.component';
 import { TodoComponent } from './todo/todo.component';
-import { ProjectComponent } from './project/project.component';
-import { FocusDirective, AppService } from './shared';
-import { DndModule } from 'ng2-dnd';
+import { AppService, InMemoryDataService } from './shared';
+import { AppRoutingModule }     from './app-routing.module';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { ProjectComponent } from './project/project.component';
 import { DatepickerModule } from 'angular2-material-datepicker';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './shared';
-import { AppRoutingModule }     from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelpComponent,
     TodoComponent,
-    ProjectComponent,
-    FocusDirective
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +34,7 @@ import { AppRoutingModule }     from './app-routing.module';
     AppRoutingModule
   ],
   providers: [
-    AppService,
+    AppService
   ],
   bootstrap: [AppComponent],
   entryComponents: [ProjectComponent]

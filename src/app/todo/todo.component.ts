@@ -8,9 +8,10 @@ import {
   ViewContainerRef 
 } from '@angular/core';
 
+import { Subject } from 'rxjs';
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { ProjectComponent } from '../project/project.component';
 import { AppSettings, AppService, IRESTful, Project } from '../shared';
-import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
 @Component({
   selector: 'todo',
@@ -19,25 +20,26 @@ import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
+  private _ProjectAdded: Subject<string> = new Subject<string>();
   @ViewChild('projectContainer', { read: ViewContainerRef }) projectContainer: ViewContainerRef;
   
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private appService: AppService,
     private slimLoadingBarService: SlimLoadingBarService
-  ) {}
+  ) {
+    this._ProjectAdded
+       .debounceTime(300)
+       .subscribe(value => this._addProject(value));
+  }
   
-  ngOnInit(): void {
-    this.getProjects();
-  }
+  ngOnInit(): void { this.getProjects(); }
 
-  startLoading(): void {
-    this.slimLoadingBarService.start();
-  }
+  addProject(): void { this._ProjectAdded.next(); }
 
-  completeLoading(): void {
-    this.slimLoadingBarService.complete();
-  }
+  startLoading(): void { this.slimLoadingBarService.start(); }
+
+  completeLoading(): void { this.slimLoadingBarService.complete(); }
 
   getProjects(): void {
     this.startLoading();
@@ -50,11 +52,11 @@ export class TodoComponent implements OnInit {
     );
   }
 
-  addProject(): void {
+  _addProject(value: string): void {
     this.startLoading();
     this.appService
       .create({
-        name: 'New project',
+        name: value || 'New project',
         getURL: (): string => Project.URL
       } as IRESTful)
       .then(project => {

@@ -1,5 +1,4 @@
-import { AppSettings } from './app-settings';
-import { Task } from './task'
+import { AppSettings, Task } from '../';
 
 describe('Task', () => {
   let task;

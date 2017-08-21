@@ -1,10 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { Headers, Http } from '@angular/http';
-import { HttpModule } from '@angular/http';
+import { Headers, Http, HttpModule } from '@angular/http';
 
-import { IRESTful } from '.';
-import { AppService } from '.';
-import { Project } from '.';
+import { IRESTful, AppService, Project } from '.';
 
 describe('AppService', () => {
   

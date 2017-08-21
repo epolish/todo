@@ -1,6 +1,4 @@
-import { IRESTful } from './abstract/i-restful'
-
-import { AppSettings } from './app-settings';
+import { IRESTful, AppSettings } from '../';
 
 export class Task implements IRESTful {
   id: number;
